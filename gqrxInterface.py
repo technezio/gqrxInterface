@@ -31,7 +31,7 @@ class Gqrx:
 		try:
 			self.__tn_handler = telnetlib.Telnet(host, port)
 		except ConnectionRefusedError:
-			print("Connection refused\nCheck gqrx network settings")
+			raise ConnectionRefusedError
 
 		self.__open_socket = True
 
