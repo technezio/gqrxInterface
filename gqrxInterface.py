@@ -56,7 +56,7 @@ class Gqrx:
 		sleep(0.3)		# Wait answer
 		try:
 			ret = self.__tn_handler.read_eager()
-		except EOFError:
+		except (EOFError, ConnectionResetError):
 			print("Connection closed")
 			sys.exit(1)
 		
